@@ -1,26 +1,26 @@
 {% load static %}
-{% load crispy_forms_tags %}
-<div class="card mb-1 ">
+
+<div class="card mb-3 text-bg-light shadow-lg">
     {% for cart in carts %}
         <div class="card-header">
-            <a class="text-center">{{ cart.product.name }}</a>
+            <h5 class="card-title">{{ cart.product.name }}</h5>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
-                <div class="row text-center mt-2">
-                    <div class="col">
+                <div class="row text-center">
+                    <div class="col p-0">
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button type="button" class="btn btn-success btn-sm decrement"
+                                <button type="button" class="btn btn-dark btn-sm decrement"
                                     data-cart-id="{{ cart.id }}"
                                     data-cart-change-url="{% url "cart:cart_change" %}">
                                     {% csrf_token %}
                                     -</button>
                             </span>
-                            <input type="text" style= "height: 2rem;" class="form-control number" value="{{ cart.quantity }}"
+                            <input type="text" class="form-control number" value="{{ cart.quantity }}"
                                 readonly>
                             <span class="input-group-btn">
-                                <button type="button" class="btn btn-success btn-sm increment"
+                                <button type="button" class="btn btn-dark btn-sm increment"
                                     data-cart-id="{{ cart.id }}"
                                     data-cart-change-url="{% url "cart:cart_change" %}">
                                     {% csrf_token %}
@@ -45,14 +45,14 @@
         </ul>
     {% endfor %}
 </div>
-<div class="card ">
+<div class="card mb-3 shadow-lg">
     <div class="card-footer">
-        <p class="float-left">Итого <strong>{{ carts.total_quantity }}</strong> товар(а) на сумму&raquo;</p>
+        <p class="float-left">Итого <strong>{{ carts.total_quantity }}</strong> товар(а) на сумму</p>
         <h4 class="float-left"><strong>{{ carts.total_price }} ₽</strong></h4>
     </div>
 </div>
 {% if carts and not orders%}
-<a class="btn" href="{% url "orders:create_order" %}">
+<a class="btn btn-dark" href="{% url "orders:create_order" %}">
     Оформить заказ
 </a>
 {% endif %}
