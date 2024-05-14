@@ -146,11 +146,10 @@ img {
 }
 
 .btn-sm {
-    font-size: .875rem !important ;
+    font-size: 1.5rem !important ;
     line-height: 1.5 !important;
     border-radius: .2rem !important;
     border: 2px;
-    font-size: 10 !important ;
 }
 
   .dropdown-toggle::after {

@@ -11,7 +11,7 @@
                     <div class="col p-0">
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button type="button" class="btn btn-dark btn-sm decrement"
+                                <button type="button" class="btn btn-success btn-sm decrement"
                                     data-cart-id="{{ cart.id }}"
                                     data-cart-change-url="{% url "cart:cart_change" %}">
                                     {% csrf_token %}
@@ -20,7 +20,7 @@
                             <input type="text" class="form-control number" value="{{ cart.quantity }}"
                                 readonly>
                             <span class="input-group-btn">
-                                <button type="button" class="btn btn-dark btn-sm increment"
+                                <button type="button" class="btn btn-success btn-sm increment"
                                     data-cart-id="{{ cart.id }}"
                                     data-cart-change-url="{% url "cart:cart_change" %}">
                                     {% csrf_token %}
@@ -33,11 +33,11 @@
                     </div>
                     <div class="col p-0"><strong> {{cart.products_price}} ₽</strong></div>
                     <div class="col p-0">
-                        <a href="{% url "cart:cart_remove" %}" class="remove-from-cart"
+                        <a href="{% url "cart:cart_remove" %}" class="btn btn-success remove-from-cart"
                         data-cart-id="{{ cart.id }}">
                             {% csrf_token %}
-                            <img class="mx-1" src="{% static "deps/icons/trash3-fill.svg" %}"
-                                alt="Catalog Icon" width="16" height="16">
+                            <img class="mx-1 " src="{% static "icons/trash3-fill.png" %}"
+                                alt="Catalog Icon" width="24" height="24">
                         </a>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
     </div>
 </div>
 {% if carts and not orders%}
-<a class="btn btn-dark" href="{% url "orders:create_order" %}">
+<a class="btn btn-success" href="{% url "orders:create_order" %}">
     Оформить заказ
 </a>
 {% endif %}
