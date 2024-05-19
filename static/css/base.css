@@ -165,7 +165,11 @@ img {
 
 .btn-sm {
     font-size: 1.5rem !important ;
+<<<<<<< HEAD
     line-height: 1.2 !important;
+=======
+    line-height: 1.5 !important;
+>>>>>>> 84c1ad7e4dec5e1d82b6dd070e2420f939bfd3c4
     border-radius: .2rem !important;
     border: 2px;
 }

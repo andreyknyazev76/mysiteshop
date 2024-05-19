@@ -45,6 +45,42 @@
     
         
 
+<<<<<<< HEAD
+=======
+{% block modal_cart %}
+{% include "includes/cart_button.html" %}
+{% endblock  %}
+{% block content %}
+<section>
+    {% for product in goods %}
+        <div class="col-lg-3 col-md-6 ">
+            <div class="card"> 
+                <div class="card-body">    
+                    <a href="{% url "catalog:product" product.slug %}"><h5 class="modal-title" id="imageModal1Label">{{ product.name }}</h5></a>
+                    <p class="card-text">{{ product.description|safe|slice:":200"}}</p>
+                    <a href="{% url "catalog:product" product.slug %}" >Подробнее...</a>
+                    <div class="d-flex justify-content-between">
+                        {% if product.discount %}
+                        <p><s>{{product.price}}</s>₽</p>
+                        <p><strong>{{ product.sell_price }}₽</strong></p>
+                        <span class="badge bg-warning text-dark">Скидка {{ product.discount }} %</span>
+                        {% else %}
+                        <p><strong>{{ product.price }}₽</strong></p>
+                        {% endif %}
+                        <div class="card-body">
+                            <a href="{% url "cart:cart_add" %}" class="btn btn-success add-to-cart"
+                            data-product-id="{{ product.id }}">
+                            {% csrf_token %}
+                            <img class="mx-1" src="{% static "icons/basket2-fill.svg" %}" alt="Catalog Icon" height="24"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div> 
+    {% endfor %}
+</section>
+>>>>>>> 84c1ad7e4dec5e1d82b6dd070e2420f939bfd3c4
 <!-- Пагинация -->
 {% if goods %}
     <nav aria-label="Page navigation example">
