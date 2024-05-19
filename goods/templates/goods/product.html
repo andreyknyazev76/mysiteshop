@@ -1,26 +1,41 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% load goods_tags %}
 {% block modal_cart %}
 {% include "includes/cart_button.html" %}
 {% endblock  %}
 
 {% block content %}
     <div class="container">
-        <div class="card col-md-12 mb-3">
-            <div class="card-body">  
+        <div class="col-md-12 mb-3 p-2">
+            <div class="card border-success">  
            
             <!-- Описание товара -->
             <div class="card-body">
+                
+                <div class="card-close">
+                {% tag_categories as categories %}
+                         {% for category in categories %}
+                        <a type="button" class="btn-close" href="{% url "catalog:index" category.slug %}" aria-label="Выход"></a>
+                         {% endfor %}
+                        </div>
+                <div class="card-title"> 
+                    <a><h5 class="card-title">{{ product.name }}</h5></a>         
+                <div class="card-img-top"> 
+                
                 <p class="card-text">Цена: <strong>{{ product.sell_price }} ₽</strong></p>
-                <h5 class="card-title">{{ product.name }}</h5>
                 <p class="card-text">{{ product.description|safe}}</p>
-                <a href="{% url "cart:cart_add" %}" class="btn btn-success add-to-cart"
+                <div class="card-footer bg-transparent border-success">
+                <p href="{% url "cart:cart_add" %}" class="btn btn-success add-to-cart"
                 data-product-id="{{ product.id }}">
                 {% csrf_token %}
-                Добавить в корзину</a>
+                Добавить в корзину</p>
             </div>
         </div>
     </div>
-</div>    
-{% endblock  %}
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock  %} 

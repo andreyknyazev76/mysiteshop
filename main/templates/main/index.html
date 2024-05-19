@@ -5,13 +5,23 @@
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 {% endblock %}
 
-{% block modal_cart %}
-{% include "includes/cart_button.html" %}
-{% endblock  %}
+{% block modal_cart %}{% include "includes/cart_button.html" %}{% endblock  %}
+{% block content %}
 
-{% block content %}   
+<div class="container ">   
+    <div class="col-md-12 mb-3 p-0">
+        <div class="card" > 
+            <div class="card-body" > 
+            <h2 class="m-2"><strong>{{ content }}</strong></h2>
+            <p class="m-2">{{ text_on_page }}</p>
+            </div>
+        </div>
+    </div>
+</div> 
 {% endblock %}
 
+</div>
+</div>
 {% block footer %}
         <footer class="footer col-md-12  mb-3">
         <a href="tel:+79087165967" class="phone-number"><img src="{% static 'img/tel.png' %}"height="20px"></a>
@@ -20,6 +30,7 @@
         <p class="text-light ">Copyright &copy; Андрей Князев</p>
     </footer>
 {% endblock %}
+
 
 
 

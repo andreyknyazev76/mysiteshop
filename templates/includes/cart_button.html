@@ -4,8 +4,8 @@
 {% user_carts request as carts %}
 
 <div>
-    <a class="d-flex" id="modalButton"aria-expanded="false">
-        <img class="mx-1" src="{% static "deps/icons/basket2-fill.svg" %}" alt="Catalog Icon" width="24" height="24">
+    <a class="d-flex " id="modalButton"aria-expanded="false">
+        <img class="mx-1" src="{% static "icons/basket2-fill.svg" %}" alt="Catalog Icon" width="23" height="23">
         <span id="goods-in-cart-count">{{ carts.total_quantity }}</span>
     </a>
 </div>

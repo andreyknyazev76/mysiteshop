@@ -1,8 +1,8 @@
 {% load static %}
-
+{% block sidebar %}{% include 'sidebar.html' %}{% endblock sidebar %} 
     <!-- Sidebar Widgets Column -->
   
-    <div class="container ">
+    <div class="container">
         <div class="col-md-4 mt-3 mb-3 float-right">
             <div class="list-group" id="list-tab" role="tablist">
             <a class="list-group-item list-group-item-action active" id="list-1-list" data-toggle="list" href="#list-1" role="tab" aria-controls="1">Регулировка окон</a>
@@ -19,8 +19,8 @@
     </div>  
      
     
-    <div class="container ">   
-        <div class="col-md-8 mt-3 mb-3 float-left">
+    <div class="container">   
+        <div class="col-md-8 mt-3 mb-3 ">
             <div class="card" > 
                 <div class="card-body" > 
                 <div class="tab-content tab-striped " id="nav-tabContent">

@@ -1,38 +1,22 @@
 body {
     background-image: url("../img/header.png");
     font-family: "Roboto", sans-serif !important;
-    font-size: 17px !important;
-    background-color: #eff0f0 !important;
+    font-size: 16px !important;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
     background-size: cover;
     height: 100%;
+    overflow-x:hidden;
 }
- 
-section {
-    display: flex !important;
-    justify-content: center !important;
-    margin-left: auto !important;
-  }
 
-@media (orientation: landscape) {
-    section {
-      flex-direction: row !important;
-      
-    }
-  }
-  
-@media (orientation: portrait) {
-    section {
-      flex-direction: column !important;
-    }
-  }  
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 400!important;
+}
+
+
  
  /**/
-.shadow {
-    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
-}
 
 .btn-danger {
     color: #fff;
@@ -41,15 +25,12 @@ section {
 }
 
 .masthead {
-    color: #fff;
     background: #3398E1;
-    text-align: center;
     height: auto;
     padding-bottom: 5px;
     padding-top: 5px;
-     /*
-    box-shadow: 0 16px 48px #E3E7EB; */
     z-index:10;
+    text-align: center;
 }
 
 .masthead img {
@@ -57,13 +38,8 @@ section {
 }
 
 .masthead a {
-    
-    text-decoration: none!important ;
-    -o-transition: color .3s ease-out, background 3s ease-in !important;
-    -ms-transition: color .3s ease-out, background 3s ease-in !important;
-    -moz-transition: color .3s ease-out, background 3s ease-in !important;
-    -webkit-transition: color .3s ease-out, background 3s ease-in !important;
-    transition: color .3s ease-out, background 3s ease-in !important;
+  color: #fff !important;
+  text-decoration: none !important;
 }
 
 .footer {
@@ -74,34 +50,81 @@ section {
     margin-bottom: 1rem;
     text-align: center;
     color: #fff;
-    border-radius: 0.2rem;
     /* box-shadow: 0 16px 48px #E3E7EB; */
 }
 
 .footer a {
     color: #fff !important;
 }
-/*
-.card a {
-    color: #3398E1 !important;
-    text-decoration: none!important ;
-    background-color: transparent !important;
-}*/
 
+.cardhead  {
+  display: flex !important;
+  justify-content: center !important;
+  margin-left: auto !important;
+  flex-wrap: wrap !important; 
+  flex: 1 !important;
+  padding: 10px !important;
+  
+}
 
-/*
-.card {
-    box-shadow: 0 16px 48px #E3E7EB;
+@media (orientation: landscape) {
+.cardhead   {
+    flex-direction: row !important;
+    max-width: 1300px !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+    min-width:540px !important ;
+    
+  }
+}
 
-*/
+@media (orientation: portrait) {
+.cardhead {
+    flex-direction: column !important;
+    
+  }
+}  
 
 
 .card {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
     padding: 10px !important;
-    margin: 0 0 1em 0 !important;
   }
+
+.card-img-top img {
+    display: inline-block !important;
+    height: auto !important;
+    max-width: 100% !important;
+    
+  }  
+
+
+  .card-body {
+    padding: 0 !important;
+  }   
+
+  .card-footer-img img {
+    height: 24px !important;
+    max-width: 24px !important;
+  }  
+ 
+  .card a {
+    color: #3398E1!important;
+    text-decoration: none !important;
+  }  
+  
+  .card-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 1;
+    color: #3398E1!important;
+    font-size: 0.85rem;
+  }
+    
+
+  
 
 .page-header {
     padding-top: 80px; /* nav height */
@@ -135,42 +158,37 @@ section {
 }
 
 
- /*
-.list-group {
-    box-shadow: 0 16px 48px #E3E7EB !important;
-} */
-
 img {
     margin-right: 20px !important;
     border-radius: 0.2rem !important;
 }
 
 .btn-sm {
-    font-size: .875rem !important ;
-    line-height: 1.5 !important;
+    font-size: 1.5rem !important ;
+    line-height: 1.2 !important;
     border-radius: .2rem !important;
     border: 2px;
-    font-size: 10 !important ;
 }
 
-  .dropdown-toggle::after {
-    content: none;
-  }
+  
   
   .badge.bg-warning.text-dark {
     position: absolute;
-    top: 10px;
-    right: 5px;
+    bottom:5px;
+    left: 5px;
     z-index: 1;
-    padding: 5px 10px;
+    padding: 5px 5px;
     border-radius: 3px;
-    font-size: 1rem;
+    font-size: 0.85rem;
   }
-  
+ 
+
   .badge-banner {
-    top: 80%;
+    bottom: 80%;
     border-radius: 15px;
     font-size: 0.7rem;
   }
   
-  
+ .active>.page-link {
+    background-color: #3398E1 !important;
+ }

@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 {% load static %}
-{% load goods_tags %}
-{% block modal_cart %}{% endblock  %} 
 {% block content %}
 {% for post in post_list %}
-<div class="container ">     
-    <div class="col-md-12 mb-3 p-0">
-        <div class="card">
-            <div class="card-body" > 
-                    <h5 class="card-title">{{ post.title }}</h5>   
-                    <p class="card-text">{{post.content|safe|slice:":600" }}</p>
-                    <a href="{% url 'post_detail' post.slug  %}" >Подробнее...</a>
-                </div>
-            </div> 
-        </div>
-    </div>                        
+    <div class="container ">     
+        <div class="col-md-12 mb-3 p-0">
+            <div class="card">
+                <div class="card-body" > 
+                    <div class="card-body-img" > 
+                        <h5 class="card-title">{{ post.title }}</h5>   
+                        <p class="card-text">{{post.content|safe|slice:":600" }}</p>
+                        <a href="{% url 'post_detail' post.slug  %}" >Подробнее...</a>
+                    </div>
+                </div> 
+            </div>
+        </div> 
+    </div>                            
 {% endfor %}
           
         

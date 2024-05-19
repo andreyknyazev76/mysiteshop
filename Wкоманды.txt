@@ -17,7 +17,7 @@ python manage.py migrate                    python manage.py runserver
                                               
                                             pip install django-grappelli    
 python manage.py createsuperuser
-                                            npm install bootstrap 
+                                            npm install bootstrap 5.3
 python manage.py startapp blog              
                                             python manage.py runserver 
                                            

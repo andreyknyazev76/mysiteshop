@@ -3,8 +3,8 @@
 {% load carts_tags %}
 
 {% block content %}
-<div class="row">
-    <div class="container mt-5">
+<div class="container">
+    <div class="row">
         <div class="row">
             <!-- Профиль с данными пользователя -->
             <div class="col-md-5">
@@ -19,7 +19,7 @@
                                         alt="Аватар пользователя" class="img-fluid rounded-circle"
                                         style="max-width: 150px;">
                                 {% else %}
-                                    <img src="{% static "deps/images/baseavatar.jpg" %}"
+                                    <img src="{% static "img/baseavatar.jpg" %}"
                                         alt="Аватар пользователя" class="img-fluid rounded-circle"
                                         style="max-width: 150px;">
                                 {% endif %}
@@ -75,7 +75,7 @@
                                     {% endif %}
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-dark">Сохранить</button>
+                        <button type="submit" class="btn btn-success">Сохранить</button>
                     </form>
                 </div>
             </div>

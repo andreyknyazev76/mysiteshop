@@ -6,32 +6,29 @@
 {% load crispy_forms_tags %}
 <div class="container ">     
     <div class="col-md-12 mb-3 p-0">
-        <div class="card">
-            <div class="card-body" > 
-                <h5>{% block title %} {{ post.title }} {% endblock title %}</h5>
-                <p class="card-text ">{{ post.content | safe }}</p>
-             </div>
-        </div>   
-    </div>
-</div>      
-<div class="container ">  
-    <div class="card col-md-12 mb-3 ">
-        <div class="card-body">
-            <!-- comments -->
-            {% with comments.count as total_comments %}
-            {% endwith %} 
-            {% for comment in comments %}                   
-            <div class="comments" style="padding: 10px;">
-            <p class="font-weight-bold">{{ comment.name }}<span class=" text-muted font-weight-normal">{{ comment.created_on }}</span> </p>
-            {{ comment.body | linebreaks }}
+        <div class="card border-success">
+            <div class="card-body"> 
+                <div class="card-img-top"> 
+                    <h5>{% block title %} {{ post.title }} {% endblock title %}</h5>
+                    <p class="card-text ">{{ post.content | safe }}</p>
+                    <!-- comments -->
+                    {% with comments.count as total_comments %}
+                    {% endwith %} 
+                    {% for comment in comments %}
+                    <div class="card-footer bg-transparent border-success">                  
+                    <div class="comments" style="padding: 10px;">
+                        <p class="font-weight-bold">{{ comment.name }}<span class=" text-muted font-weight-normal">{{ comment.created_on }}</span> </p>
+                        {{ comment.body | linebreaks }}
+                   </div>
+                </div>
+                        {% endfor %}
+                </div>
             </div>
-            {% endfor %}
         </div>
     </div>
-</div>
-
+</div> 
 <div class="container ">  
-    <div class="card col-md-12 mb-3 ">
+    <div class="card border-success col-md-6 mb-3 ">
         <div class="card-body">
             {% if new_comment %}
             <div class="alert alert-success" role="alert">Ваш комментарий проверяется</div>
@@ -39,10 +36,12 @@
                     <form method="post" style="margin-top: 1.3em;">
             {{ comment_form | crispy }}
             {% csrf_token %}
+            <div class="card-footer "> 
                     <button type="submit" class="btn btn-success">Отправить</button>
-                    </form>
+                    </form>    
             {% endif %}
         </div>
+    </div>
     </div>
 </div>   
 </div>                             
