@@ -1,7 +1,7 @@
 {% extends 'base.html' %} 
 {% load static %}
 {% load goods_tags %}
-{% block modal_cart %}{% endblock  %} 
+{% block modal_cart %}{% include "includes/cart_button.html" %}{% endblock  %}
 {% block content %}
 {% load crispy_forms_tags %}
 <div class="container ">     

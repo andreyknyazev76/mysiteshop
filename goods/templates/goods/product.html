@@ -16,7 +16,7 @@
                 <div class="card-close">
                 {% tag_categories as categories %}
                          {% for category in categories %}
-                        <a type="button" class="btn-close" href="{% url "catalog:index" category.slug %}" aria-label="Выход"></a>
+                        <a type="button" class="btn-close btn-close-success" href="{% url "catalog:index" category.slug %}" aria-label="Выход"></a>
                          {% endfor %}
                         </div>
                 <div class="card-title"> 

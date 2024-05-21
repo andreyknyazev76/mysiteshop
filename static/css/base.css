@@ -73,7 +73,8 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 1300px !important;
     margin-right: auto !important;
     margin-left: auto !important;
-    min-width:540px !important ;
+    min-width:576px !important ;
+    padding: 0 !important;
     
   }
 }
@@ -100,9 +101,7 @@ h1, h2, h3, h4, h5, h6 {
   }  
 
 
-  .card-body {
-    padding: 0 !important;
-  }   
+ 
 
   .card-footer-img img {
     height: 24px !important;
@@ -165,11 +164,7 @@ img {
 
 .btn-sm {
     font-size: 1.5rem !important ;
-<<<<<<< HEAD
     line-height: 1.2 !important;
-=======
-    line-height: 1.5 !important;
->>>>>>> 84c1ad7e4dec5e1d82b6dd070e2420f939bfd3c4
     border-radius: .2rem !important;
     border: 2px;
 }
@@ -184,6 +179,7 @@ img {
     padding: 5px 5px;
     border-radius: 3px;
     font-size: 0.85rem;
+    background-color: #fff !important;
   }
  
 
