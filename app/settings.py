@@ -40,19 +40,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'django.contrib.postgres',
     "django.contrib.sitemaps",
-    "blog.apps.BlogConfig",
     "crispy_forms",
     "django_summernote",
 
-    "debug_toolbar",
-
+    'blog',
     'main',
     'goods',
     'users',
     'carts',
     'orders',
+    "applications",
 ]
 
 MIDDLEWARE = [
@@ -64,7 +64,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
+   
 ]
 
 ROOT_URLCONF = 'app.urls'

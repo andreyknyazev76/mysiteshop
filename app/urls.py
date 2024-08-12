@@ -18,17 +18,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from django.conf.urls.static import static
-from django.contrib.sitemaps.views import sitemap
-
 from app import settings
-
-
-from blog.sitemaps import PostSitemap
-
-sitemaps = {
-    "posts": PostSitemap,
-}
-
 
 
 urlpatterns = [
@@ -38,16 +28,12 @@ urlpatterns = [
     path('user/', include('users.urls', namespace='user')),
     path('cart/', include('carts.urls', namespace='cart')),
     path('orders/', include('orders.urls', namespace='orders')),
-    path("blog/", include("blog.urls"), name="blog-urls"),
+    path('applications/', include('applications.urls', namespace='applications')),
+    path("blog/", include("blog.urls", namespace='blog')),
     path("summernote/", include("django_summernote.urls")),
-    path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
-
 ]
 
 if settings.DEBUG:
-    urlpatterns += [
-        path("__debug__/", include("debug_toolbar.urls")),
-    ]
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
  
 

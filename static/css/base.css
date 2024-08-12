@@ -10,11 +10,14 @@ body {
     overflow-x:hidden;
 }
 
+
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 400!important;
 }
 
-
+strong {
+  font-weight: 400!important;
+}
  
  /**/
 
@@ -35,12 +38,27 @@ h1, h2, h3, h4, h5, h6 {
 
 .masthead img {
     margin-left: 1rem !important;
+    border-radius: 50% !important;  
 }
+
+.masthead img.mx-1.active {
+  display: inline-block !important;
+  border-radius: 50% !important;
+  box-shadow: 0 0 15px 5px #fff;  /* Сохраняем и укрепляем эффект свечения */
+  clip-path: circle(50% at var(--posX) var(--posY)); /* Фокусируем свет в заданной области */
+}
+
 
 .masthead a {
   color: #fff !important;
   text-decoration: none !important;
+  
 }
+
+.mx-1 {
+  margin-top: 1px !important;
+}
+
 
 .footer {
     background: #3398E1;
@@ -57,36 +75,6 @@ h1, h2, h3, h4, h5, h6 {
     color: #fff !important;
 }
 
-.cardhead  {
-  display: flex !important;
-  justify-content: center !important;
-  margin-left: auto !important;
-  flex-wrap: wrap !important; 
-  flex: 1 !important;
-  padding: 10px !important;
-  
-}
-
-@media (orientation: landscape) {
-.cardhead   {
-    flex-direction: row !important;
-    max-width: 1300px !important;
-    margin-right: auto !important;
-    margin-left: auto !important;
-    min-width:576px !important ;
-    padding: 0 !important;
-    
-  }
-}
-
-@media (orientation: portrait) {
-.cardhead {
-    flex-direction: column !important;
-    
-  }
-}  
-
-
 .card {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
@@ -100,16 +88,13 @@ h1, h2, h3, h4, h5, h6 {
     
   }  
 
-
- 
-
   .card-footer-img img {
     height: 24px !important;
     max-width: 24px !important;
   }  
  
   .card a {
-    color: #3398E1!important;
+    /* color: #3398E1!important;*/
     text-decoration: none !important;
   }  
   
@@ -123,29 +108,32 @@ h1, h2, h3, h4, h5, h6 {
   }
     
 
-  
-
 .page-header {
     padding-top: 80px; /* nav height */
 }
 
-.navbar {
-    margin-bottom: -2px;
-    padding: .3rem 0rem;
+.page-link {
+    color: #3398E1!important;
+    border-radius: 3px !important;
+    margin: 2px !important;
+    border-color: #198754 !important;
 }
+ 
+.active>.page-link {
+  background-color: #3398E1 !important;
+  color: #fff !important;
+}
+
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgb(25, 135, 84)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='1.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
 
 .navbar-brand {
     font-family: lobster !important;
 }
 
-.nav-item {
-    text-decoration: none!important ;
-    -o-transition: color .3s ease-out, background 3s ease-in !important;
-    -ms-transition: color .3s ease-out, background 3s ease-in !important;
-    -moz-transition: color .3s ease-out, background 3s ease-in !important;
-    -webkit-transition: color .3s ease-out, background 3s ease-in !important;
-    transition: color .3s ease-out, background 3s ease-in !important;
-}
 
 .list-group-item-action.active {
     background-color: #3398E1 !important;
@@ -156,6 +144,10 @@ h1, h2, h3, h4, h5, h6 {
     padding: .2rem 1rem !important; 
 }
 
+.list-group {
+    border-color: #198754 !important;
+    border: var(--bs-list-group-border-width) solid var(--bs-list-group-border-color);
+}
 
 img {
     margin-right: 20px !important;
@@ -189,6 +181,5 @@ img {
     font-size: 0.7rem;
   }
   
- .active>.page-link {
-    background-color: #3398E1 !important;
- }
+ 
+ 

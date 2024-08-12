@@ -8,7 +8,7 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
                 <div class="row text-center ">
-                    <div class="col p-0">
+                    <div class="col ">
                         <div class="input-group">
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-success btn-sm decrement"
@@ -46,11 +46,13 @@
     {% endfor %}
 </div>
 <div class="card mb-3 ">
-    <div class="card-footer ">
+    <div>
         <p class="float-left">Итого <strong>{{ carts.total_quantity }}</strong> товар(а) на сумму</p>
         <h4 class="float-left"><strong>{{ carts.total_price }} ₽</strong></h4>
     </div>
 </div>
+<div >
 {% if carts and not orders%}
 <a class="btn btn-success" href="{% url "orders:create_order" %}">Оформить заказ</a>
 {% endif %}
+</div>

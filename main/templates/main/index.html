@@ -1,32 +1,224 @@
 {% extends "base.html" %}
 {% load static %}
-
-{% block css %}
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-{% endblock %}
-
+{% load goods_tags %}
+{% block css %}<link rel="stylesheet" href="{% static 'css/base.css' %}">{% endblock %}
 {% block modal_cart %}{% include "includes/cart_button.html" %}{% endblock  %}
+{% load blog_tags %}
+{% load carts_tags %}
+{% load crispy_forms_tags %}
+
 {% block content %}
-
-<div class="container ">   
-    <div class="col-md-12 mb-3 p-0">
-        <div class="card" > 
-            <div class="card-body" > 
-            <h2 class="m-2"><strong>{{ content }}</strong></h2>
-            <p class="m-2">{{ text_on_page }}</p>
-            </div>
-        </div>
+<div class="container "> 
+  <div class="row"> 
+    <div class="col-lg-4 md-6 mb-3">
+      <div class="list-group" id="list-tab" role="tablist">
+        <a class="list-group-item list-group-item-action active" id="list-1-list" data-bs-toggle="list" href="#list-1" role="tab" aria-controls="list-1">Регулировка окон</a>
+        <a class="list-group-item list-group-item-action" id="list-2-list" data-bs-toggle="list" href="#list-2" role="tab" aria-controls="list-2">Регулировка алюминиевых балконов</a>
+        <a class="list-group-item list-group-item-action" id="list-3-list" data-bs-toggle="list" href="#list-3" role="tab" aria-controls="list-3">Замена комплектующих</a>
+        <a class="list-group-item list-group-item-action" id="list-4-list" data-bs-toggle="list" href="#list-4" role="tab" aria-controls="list-4">Замена/ремонт фурнитуры</a>
+        <a class="list-group-item list-group-item-action" id="list-5-list" data-bs-toggle="list" href="#list-5" role="tab" aria-controls="list-5">Замена уплотнительной резины</a>
+        <a class="list-group-item list-group-item-action" id="list-6-list" data-bs-toggle="list" href="#list-6" role="tab" aria-controls="list-6">Установка детских замков</a>
+        <a class="list-group-item list-group-item-action" id="list-7-list" data-bs-toggle="list" href="#list-7" role="tab" aria-controls="list-7">Установка москитных сеток</a>
+        <a class="list-group-item list-group-item-action" id="list-8-list" data-bs-toggle="list" href="#list-8" role="tab" aria-controls="list-8">Установка рулонных штор</a>
+        <a class="list-group-item list-group-item-action" id="list-9-list" data-bs-toggle="list" href="#list-9" role="tab" aria-controls="list-9">Замена стеклопакета</a>
+      </div>
     </div>
-</div> 
-{% endblock %}
+ 
+    <div class="col-lg-8 col-md-6 mb-3">
+      <div class="card border-success">  
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="list-1" role="tabpanel" aria-labelledby="list-1-list"><img src="{% static 'img/service1.png' %}"height="260px" align="left" ><h5 >Регулировка окон от 600 рублей</h5>
+            <p>В случае если у Вас "просела" створка или не закрывается, появилось продувание или "свист"
+               из оконных створок, или же ручка не закрывается до конца, то Вам поможет регулировка окна.</p></div>
+               <div class="tab-pane fade" id="list-2" role="tabpanel" aria-labelledby="list-2-list"><img src="{% static 'img/service2.png' %}"height="260px" align="left">
+               <h5>Ремонт и регулировка алюминиевых конструкций от 500 рублей</h5>
+               При интенсивной эксплуатации возникают люфты и зазоры между створками и рамой, что не только вызывает сквозняки, но и осложняет открывание, закрывание.
+               Чтобы устранить перекосы и зазоры, нужно отрегулировать оконные механизмы.</div>
+               <div class="tab-pane fade" id="list-3" role="tabpanel" aria-labelledby="list-3-list"><img src="{% static 'img/service3.png' %}"height="260px" align="left">
+               <h5>Замена комплектующих от 200 рублей</h5>
+               Сломалась фурнитура на пластиковом окне? Это не критично. Отремонтировать ее можно в любое время.
+               И даже если сейчас не очень хочется этими вопросами заниматься, лучше, все же, сделать это. 
+               Ведь окно со сломанной фурнитурой эксплуатировать неудобно, а результативность его работы будет крайне низкой.</div>
+               <div class="tab-pane fade" id="list-4" role="tabpanel" aria-labelledby="list-4-list"><img src="{% static 'img/service4.png' %}"height="260px" align="left">
+               <h5>Ремонт фурнитуры от 1500 рублей</h5>
+                Бывает такое, что ручка крутится, а фурнитура не двигается - чаще всего это проблема не в ручке, а именно в фурнитуре; а значит требуется её ремонт или замена. 
+                Или же у Вас сломалась какая-то деталь в фурнитуре, а эта деталь уже снята с производства, тогда не стоит тратить большие деньги на замену всего окна, можно заменить только фурнитуру.</div>
+                <div class="tab-pane fade" id="list-5" role="tabpanel" aria-labelledby="list-5-list"><img src="{% static 'img/service5.png' %}"height="260px"align="left" >
+                <h5>Замена уплотнительной резины от 1200 рублей</h5>
+                Если у вас старая уплотнительная резина "задубела" и не выполняет своих функций, то её следует заменить. 
+                Самое сложное на данном этапе - правильно подобрать резину, чтобы она подходила к вашему профилю и не портила фурнитуру.</div>
+                <div class="tab-pane fade" id="list-6" role="tabpanel" aria-labelledby="list-6-list"><img src="{% static 'img/service6.png' %}"height="260px" align="left">
+                <h5>Установка "детских" замков от 600 рублей</h5>
+                    Маленькие детки любят играть рядом с окнами, и, к сожалению, бывают случаи, что они случайно открывают окна. Чтобы такого не происходило, мы своими клиентам устанавливаем "детские" замки.</div>
+                <div class="tab-pane fade" id="list-7" role="tabpanel" aria-labelledby="list-7-list"><img src="{% static 'img/service7.png' %}"height="260px" align="left">
+                <h5>Производство и установка москитных сеток</h5>
+                    Москитная сетка - идеальное средство против комаров, мух и других летающих насекомых в вашей квартире. 
+                    Часто бывает, что у клиентов есть кошка и она любит "драть" москитные сетки.
+                    Производство и установка москитной сетки в нашей компании - быстрое и надёжное решение данной проблемы.</div>
+                <div class="tab-pane fade" id="list-8" role="tabpanel" aria-labelledby="list-8-list"><img src="{% static 'img/service8.png' %}"height="260px" align="left">
+                <h5>Установка рулонных штор от 300 рублей</h5>
+                    В летний зной и в период палящего солнца Вашу квартиру и Ваше спокойствие защитят рулонные шторы. Они долговечны и довольно просты в эксплуатации.</div>
+                <div class="tab-pane fade" id="list-9" role="tabpanel" aria-labelledby="list-9-list"><img src="{% static 'img/service9.png' %}"height="260px" align="left">
+                <h5>Замена стеклопакета от 1200 рублей</h5>
+                    У Вас треснул стеклопакет и Вас смущает его вид? Или появилось запотевание ПВХ-окон?
+                    Необязательно менять всё окно целиком. 
+                    Достаточно просто сменить стеклопакет. Вы всегда можете обратиться в нашу компанию и мы в короткие сроки решим Вашу проблему.</div>
+                </div>
+              </div>
+            </div>
+          </div>    
+        </div>
+      </div>    
+    </div>   
+  <div class="container ">  
+    <div class="row ">
+      <div class="col-lg-4 col-md-6 "> 
+          <!-- Оформление заявки-->
+        <div class="card  border-success mb-3 ">
+          <h5 class="text-center ">Оставить заявку для вызова мастера</h5>
+          
+              <div class="card-body">
+                  <form action="{% url "applications:create_application" %}" method="post">
+                      {% csrf_token %}
+                      <div class="row">
+                          <div class="col-md-6 mb-3">
+                              <label for="id_first_name" class="form-label">Имя*:</label>
+                              <input type="text" class="form-control" id="id_first_name"
+                                  value="{% if form.first_name.value %}{{ form.first_name.value }}{% endif %}"
+                                  name="first_name" required>
+                              {% if form.first_name.errors %}
+                                  <div class="alert alert-danger alert-dismissible fade show">{{form.first_name.errors}}</div>
+                              {% endif %}
+                          </div>
+                          <div class="col-md-6 mb-3">
+                              <label for="id_last_name" class="form-label">Фамилия*:</label>
+                              <input type="text" class="form-control" id="id_last_name" name="last_name"
+                              value="{% if form.last_name.value %}{{ form.last_name.value }}{% endif %}"
+                              required>
+                              {% if form.last_name.errors %}
+                                  <div class="alert alert-danger alert-dismissible fade show">{{form.last_name.errors}}</div>
+                              {% endif %}
+                          </div>
+                          <div class="col mb-3">
+                              <label for="id_phone_number" class="form-label">Номер телефона*:</label>
+                              <input type="text" class="form-control" id="id_phone_number" name="phone_number"
+                                  value="{% if form.phone_number.value %}{{ form.phone_number.value }}{% endif %}"
+                                  placeholder="В формате: 9XX-XXX-XX-XX"
+                                  required>
+                              {% if form.phone_number.errors %}
+                                  <div class="alert alert-danger alert-dismissible fade show">{{form.phone_number.errors}}</div>
+                              {% endif %}
+                          </div>
+                          
+                          <div class="mb-3" id="deliveryAddressField">
+                              <label for="id_description_address" class="form-label">Краткое описание и адрес*:</label>
+                              <textarea class="form-control" id="id_delivery_address"
+                                  value="{% if form.description_address.value %}{{ form.description_address.value }}{% endif %}"
+                                  name="description_address" rows="2"></textarea>
+                              {% if form.description_address.errors %}
+                                  <div class="alert alert-danger alert-dismissible fade show">{{form.description_address.errors}}</div>
+                              {% endif %}
+                          </div>
+                        <div class="card-footer-img">  
+                      <button type="submit" class="btn btn-success">Отправить</button>
+                    </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+        <!-- карточки товаров-->
+        {% for product in goods %} 
+                <div class="card  border-success mb-3"> 
+                  <div class="card-title">
+                    <a href="{% url "catalog:product" product.slug %}"><h5 class="modal-title" id="imageModal1Label">{{ product.name }}</h5></a>  
+                      <div class="card-img-top"> 
+                        <p class="card-text">{{ product.description|safe|slice:":180"}}</p>
+                        <a href="{% url "catalog:product" product.slug %}" >Полное описание...</a>
+                          <div class="card-footer bg-transparent border-success">
+                            <div class="d-flex justify-content-between">
+                            {% if product.discount %}
+                            <p><s>{{product.price}}</s>₽</p>
+                            <p><strong>{{ product.sell_price }}₽</strong></p>
+                            <span class="badge bg-warning text-dark">Скидка {{ product.discount }} %</span>
+                            {% else %}
+                            <p><strong>{{ product.price }}₽</strong></p>
+                            {% endif %}
+                              <div class="card-footer-img"> 
+                                <a href="{% url "cart:cart_add" %}" class="btn btn-success add-to-cart"
+                                data-product-id="{{ product.id }}">
+                                {% csrf_token %}
+                                <img class="mx-1" src="{% static "icons/basket2-fill.svg" %}"></a>
+                                </div>
+                              </div>
+                            </div>        
+                          </div> 
+                        </div> 
+                      </div>  
+                  {% endfor goods %} 
+                      <!-- Пагинация -->
+        {% if goods %}                     
+          <nav aria-label="Page navigation example ">
+            <ul class="pagination justify-content-center my-4 ">
+              <div class="custom-shadow d-flex ">
+                <li class="page-item {% if not goods.has_previous %}disabled{% endif %}">
+                <a class="page-link" href="{% if goods.has_previous %}?{% change_params page=goods.previous_page_number %}{% else %}#{% endif %}">&lang;</a>
+                </li>
+              
+                {% for page in goods.paginator.page_range %}
+                {% if page >= goods.number|add:-1 and page <= goods.number|add:1 %}
+                  <li class="page-item {% if goods.number == page %} active {% endif %}">
+                  <a class="page-link" href="?{% change_params page=page %}">{{ page }}</a>
+                  </li>
+                {% endif %}
+                {% endfor %}
+                  <li class="page-item {% if not goods.has_next %}disabled{% endif %}">
+                  <a class="page-link" href="{% if goods.has_next %}?{% change_params page=goods.next_page_number %}{% else %}#{% endif %}">&rang;</a>
+                  </li>
+                  <li class="page-item">
+                {% tag_categories as categories %}
+                {% for category in categories %}
+                <a class="page-link" href="{% url "catalog:index" category.slug %}">Все товары</a>
+                {% endfor %}          
+                </li>
+              </div>
+            </ul>
+          </nav> 
+    {% endif %} 
 
+  
 </div>
+    <div class="col-lg-8 col-md-6 mb-3">
+      {% for post in blog %}     
+        <div class="card border-success mb-3">
+          <div class="card-body " > 
+            <div class="card-img-top " > 
+              <h5 class="card-title">{{ post.title }}</h5>   
+              <p class="card-text">{{post.content|safe|slice:":6000" }}</p>
+              <a href="{% url 'blog:post' post.slug  %}" >Подробнее...</a>
+            </div>
+          </div> 
+        </div>     
+      {% endfor %}
+      
+<div class="card border-success mb-3">
+  {% tag_post as post %}
+  {% for post in post %}
+ <a "page-link" href="{% url 'blog:post' post.slug  %}">{{post.title}}</a>
+  {% endfor %}
 </div>
+          </div>
+        </div> 
+      </div>   
+      {% endblock %}
+    </div>
+  </div>
+</div>
+
 {% block footer %}
-        <footer class="footer col-md-12  mb-3">
-        <a href="tel:+79087165967" class="phone-number"><img src="{% static 'img/tel.png' %}"height="20px"></a>
+        <footer class="footer col  mb-3">
+        <a href="tel:+79129481580" class="phone-number"><img src="{% static 'img/tel.png' %}"height="20px"></a>
         <a href="mailto:andrey.knyazev.76@gmail.com"><img src="{% static 'img/email.png' %}"height="20px"></a>
-        <a href="https://vk.com/yaznautochno" ><img src="{% static 'img/vk.png' %}"height="30px"></a>
+        <a href="https://vk.com/yaznautochno" ><img src="{% static 'img/vk.png' %}"height="22px"></a>
         <p class="text-light ">Copyright &copy; Андрей Князев</p>
     </footer>
 {% endblock %}

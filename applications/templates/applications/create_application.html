@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+{% load carts_tags %}
+{% block content %}
+<div class="container  ">
+    <div class="row justify-content-center ">
+        <div class="col-lg-5 ">
+            <div class="card  border-success mb-3 "> 
+                <div class="col bg-white  mb-3 mx-3 rounded ">
+         <!-- Оформление заявки-->
+            <h5 class="text-center ">Отправить заявку</h5>
+                <div class="card-body">
+                <form action="{% url "applications:create_application" %}" method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="id_first_name" class="form-label">Имя*:</label>
+                        <input type="text" class="form-control" id="id_first_name"
+                            value="{% if form.first_name.value %}{{ form.first_name.value }}{% endif %}"
+                            name="first_name" required>
+                        {% if form.first_name.errors %}
+                            <div class="alert alert-danger alert-dismissible fade show">{{form.first_name.errors}}</div>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="id_last_name" class="form-label">Фамилия*:</label>
+                        <input type="text" class="form-control" id="id_last_name" name="last_name"
+                        value="{% if form.last_name.value %}{{ form.last_name.value }}{% endif %}"
+                        required>
+                        {% if form.last_name.errors %}
+                            <div class="alert alert-danger alert-dismissible fade show">{{form.last_name.errors}}</div>
+                        {% endif %}
+                    </div>
+                    <div class="col mb-3">
+                        <label for="id_phone_number" class="form-label">Номер телефона*:</label>
+                        <input type="text" class="form-control" id="id_phone_number" name="phone_number"
+                            value="{% if form.phone_number.value %}{{ form.phone_number.value }}{% endif %}"
+                            placeholder="В формате: 9XX-XXX-XX-XX"
+                            required>
+                        {% if form.phone_number.errors %}
+                            <div class="alert alert-danger alert-dismissible fade show">{{form.phone_number.errors}}</div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="mb-3" id="deliveryAddressField">
+                        <label for="id_description_address" class="form-label">Краткое описание и адрес*:</label>
+                        <textarea class="form-control" id="id_delivery_address"
+                            value="{% if form.description_address.value %}{{ form.description_address.value }}{% endif %}"
+                            name="description_address" rows="2"></textarea>
+                        {% if form.description_address.errors %}
+                            <div class="alert alert-danger alert-dismissible fade show">{{form.description_address.errors}}</div>
+                        {% endif %}
+                    </div>
+                <div class="card-footer-img">  
+                <button type="submit" class="btn btn-success">Отправить</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+{% endblock  %}
+{% block footer %}{% endblock %}
+   

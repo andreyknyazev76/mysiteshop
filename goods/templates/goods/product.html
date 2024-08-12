@@ -6,8 +6,9 @@
 {% endblock  %}
 
 {% block content %}
+
     <div class="container">
-        <div class="col-md-12 mb-3 p-2">
+        <div class="col-lg-8 col-md-6 mb-3 ">
             <div class="card border-success">  
            
             <!-- Описание товара -->
@@ -16,10 +17,9 @@
                 <div class="card-close">
                 {% tag_categories as categories %}
                          {% for category in categories %}
-                        <a type="button" class="btn-close btn-close-success" href="{% url "catalog:index" category.slug %}" aria-label="Выход"></a>
+                        <a type="button" class="btn-close" href="{% url "main:index" %}" aria-label="Выход"></a>
                          {% endfor %}
-                        </div>
-                <div class="card-title"> 
+                        </div> 
                     <a><h5 class="card-title">{{ product.name }}</h5></a>         
                 <div class="card-img-top"> 
                 

@@ -1,5 +1,6 @@
 {% load static %}
 {% load goods_tags %}
+{% load blog_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,9 +10,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google" content="notranslate" />
-   
     
-    <title>Ремонт Окон в Ухте</title> 
+    
+    <title>Ремонт Окон в г.Ухта</title> 
     <link rel="manifest" href="{% static "img/favicon.ico" %}">
         <link rel="shortcut icon" href="{% static "/img/favicon.ico"%}"type="image/x-icon">
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
@@ -38,8 +39,10 @@
                         <ul class="navbar-nav">    
                           <li class="nav-item"><a class="nav-link" href="{% url "main:about" %}">Про нас</a></li>
                         </ul>
-                        <ul class="navbar-nav">  
-                          <li class="nav-item"><a class="nav-link" href="/blog">Блог</a></li>
+                        <ul class="navbar-nav">
+                             
+                          <li class="nav-item"><a class="nav-link" href="{% url "blog:index"%}">Блог</a></li>
+                          
                         </ul>
                         <ul class="navbar-nav">
                         <li class="nav-item dropdown ">
@@ -85,23 +88,23 @@
 
     <header class="masthead  mb-3 static-top" style="position: -webkit-sticky; position: sticky; top: 0;"> 
         <div class="d-flex justify-content-center">          
-            <a class="text-light" href="tel:+79087165967" class="phone-number">Звоните c 9:00 до 21:00<img src="{% static 'img/tel.png' %}"height="25px">+7-908-71-65-9-67 </a>    
-            <a class="text-light">{% block modal_cart %}{% include "includes/notifications.html" %}{% endblock  %} </a>  
+            <a class "text-light" href="tel:+79129481580" class="phone-number">Звоните c 9:00 до 21:00<img src="{% static 'img/tel.png' %}"height="24px">+7-912-94-81-5-80 </a> 
+           <a>{% block modal_cart %}{% endblock  %}</a>  
         </div> 
     </header>
-   
-   
+    {% include "includes/notifications.html" %}
+    
     {% block content %}
    
     {% endblock %}
             
     {% block footer %}
-        <footer class="footer col-md-12  mb-3">
-        <a href="tel:+79087165967" class="phone-number"><img src="{% static 'img/tel.png' %}"height="20px"></a>
+        <footer class ="footer col-md-12  mb-3">
+        <a href="tel:+79129481580" class="phone-number"><img src="{% static 'img/tel.png' %}"height="20px"></a>
         <a href="mailto:andrey.knyazev.76@gmail.com"><img src="{% static 'img/email.png' %}"height="20px"></a>
         <a href="https://vk.com/yaznautochno" ><img src="{% static 'img/vk.png' %}"height="22px"></a>
         <p class="text-light ">Copyright &copy; Андрей Князев</p> 
-    </footer>
+        </footer>
     {% endblock %}
 
     <script src="{% static "js/jquery/jquery-3.7.0.min.js" %}"></script>

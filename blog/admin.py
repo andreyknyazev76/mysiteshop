@@ -4,7 +4,7 @@ from .models import Comment, Post
 
 admin.site.site_header = "Административная панель"
 admin.site.site_title = ""
-admin.site.index_title = "Блог"
+admin.site.index_title = "Ремонт окон в г.Ухта"
 
 
 class PostAdmin(SummernoteModelAdmin):

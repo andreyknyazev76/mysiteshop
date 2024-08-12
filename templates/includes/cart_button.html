@@ -1,14 +1,14 @@
 {% load static %}
 {% load carts_tags %}
-
 {% user_carts request as carts %}
 
-<div>
-    <a class="d-flex " id="modalButton"aria-expanded="false">
-        <img class="mx-1" src="{% static "icons/basket2-fill.svg" %}" alt="Catalog Icon" width="23" height="23">
+
+
+    <a class= "d-flex justify-content-center" id="modalButton"aria-expanded="false">
+        <img class="mx-1{% if carts.total_quantity >= 1 %} active {% endif %}" src="{% static "icons/basket2-fill.svg" %}" alt="Catalog Icon" width="24" height="24">
         <span id="goods-in-cart-count">{{ carts.total_quantity }}</span>
     </a>
-</div>
+
 <!-- Разметка модального окна корзины -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
@@ -19,7 +19,7 @@
                     aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h3 class="text-center mb-4">Корзина</h3>
+                <h5 class="text-center mb-4">Корзина</h5>
                 <div class="container" id="cart-items-container">
                     <!-- Разметка корзины -->
                     {% include "carts/includes/included_cart.html" %}

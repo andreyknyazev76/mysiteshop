@@ -5,13 +5,15 @@ $(document).ready(function () {
 
     // Ловим собыитие клика по кнопке добавить в корзину
     $(document).on("click", ".add-to-cart", function (e) {
+       
         // Блокируем его базовое действие
         e.preventDefault();
 
         // Берем элемент счетчика в значке корзины и берем оттуда значение
         var goodsInCartCount = $("#goods-in-cart-count");
         var cartCount = parseInt(goodsInCartCount.text() || 0);
-
+  
+        
         // Получаем id товара из атрибута data-product-id
         var product_id = $(this).data("product-id");
 
@@ -43,6 +45,7 @@ $(document).ready(function () {
                 var cartItemsContainer = $("#cart-items-container");
                 cartItemsContainer.html(data.cart_items_html);
 
+
             },
 
             error: function (data) {
@@ -51,8 +54,7 @@ $(document).ready(function () {
         });
     });
 
-
-
+   
 
     // Ловим собыитие клика по кнопке удалить товар из корзины
     $(document).on("click", ".remove-from-cart", function (e) {
@@ -193,7 +195,9 @@ $(document).ready(function () {
         $('#exampleModal').appendTo('body');
 
         $('#exampleModal').modal('show');
+
     });
+
 
     // Собыите клик по кнопке закрыть окна корзины
     $('#exampleModal .btn-close').click(function () {
@@ -208,6 +212,60 @@ $(document).ready(function () {
             $("#deliveryAddressField").show();
         } else {
             $("#deliveryAddressField").hide();
+    
         }
+   
+       
+       
+       
+        $(document).ready(function () {
+            var successMessage = $("#jq-notification");
+            var goodsInCartCount = $("#goods-in-cart-count");
+            var modalButton = $("#modalButton");
+        
+            function updateCartCount() {
+                $.ajax({
+                    url: "update_cart.php",
+                    type: "GET",
+                    success: function(response) {
+                        var cartCount = parseInt(response) || 0;
+                        goodsInCartCount.text(cartCount);
+                        updateLinkClass(cartCount);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Ошибка при выполнении AJAX запроса: " + error);
+                    }
+                });
+            }
+        
+            function updateLinkClass(cartCount) {
+                if (cartCount >= 1) {
+                    modalButton.addClass('active');
+                } else {
+                    modalButton.removeClass('active');
+                }
+            }
+        
+            updateCartCount();
+            setInterval(updateCartCount, 5000);
+        
+            // Обработка кликов и других событий
+            $(document).on("click", ".add-to-cart", function (e) {
+                // Обработчик добавления товара в корзину
+            });
+        
+            $(document).on("click", ".remove-from-cart", function (e) {
+                // Обработчик удаления товара из корзины
+            });
+        });
     });
 });
+
+ 
+
+     
+
+
+
+
+
