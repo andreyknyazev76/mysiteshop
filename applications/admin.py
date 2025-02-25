@@ -21,6 +21,7 @@ class ApplicationAdmin(admin.ModelAdmin):
         "id",
         "user",
         "description_address",
+        "phone_number" ,
         "status",
         "created_timestamp",
         
